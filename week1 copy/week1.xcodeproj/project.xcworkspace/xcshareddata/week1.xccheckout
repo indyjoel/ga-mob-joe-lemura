@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8610B4AA-5255-4447-BF3D-27082E7E5FB8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>week1</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D5C29241F375D34D576FBFF2BC4FD0A838397887</key>
+		<string>https://github.com/indyjoel/ga-mob-joe-lemura.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>week1/week1.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D5C29241F375D34D576FBFF2BC4FD0A838397887</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/indyjoel/ga-mob-joe-lemura.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D5C29241F375D34D576FBFF2BC4FD0A838397887</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D5C29241F375D34D576FBFF2BC4FD0A838397887</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ga-mob-joe-lemura</string>
+		</dict>
+	</array>
+</dict>
+</plist>
