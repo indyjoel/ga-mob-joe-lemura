@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         case "0","1","2","3","4","5","6","7","8","9":
             println("This is a number between 0 and 10")
             let tempValue = calcOutput.text
-            println("tempvalue is " + tempValue)
+            //println("tempvalue is " + tempValue)
             //tempStorage = tempValue
             calcOutput.text = tempValue
         case "+":
