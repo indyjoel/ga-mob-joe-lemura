@@ -1,2 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
 
-week1/week1/swift-validator/
+<head>
+	<noscript><meta http-equiv="refresh" content="0; URL=/files/philwilson/F03TWJBCJ/swift.gitignore?nojsmode=1" /></noscript>
+<script type="text/javascript">
+window.load_start_ms = new Date().getTime();
+window.load_log = [];
+window.logLoad = function(k) {
+	var ms = new Date().getTime();
+	window.load_log.push({
+		k: k,
+		t: (ms-window.load_start_ms)/1000
+	})
+}
+if(self!==top)window.document.write("\u003Cstyle>body * {display:none !important;}\u003C\/style>\u003Ca href=\"#\" onclick="+
+"\"top.location.href=window.location.href\" style=\"display:block !important;padding:10px\">Go to Slack.com\u003C\/a>");
+</script>
+
+
+<script type="text/javascript">
+window.callSlackAPIUnauthed = function(method, args, callback) {
+	var url = '/api/'+method+'?t='+new Date().getTime();
+	var req = new XMLHttpRequest();
+	
+	req.onreadystatechange = function() {
+		if (req.readyState == 4) {
+			req.onreadystatechange = null;
+			var obj;
+			
+			if (req.status == 200) {
+				if (req.responseText.indexOf('{') == 0) {
+					try {
+						eval('obj = '+req.responseText);
+					} catch (err) {
+						console.warn('unable to do anything with api rsp');
+					}
+				}
+			}
+			
+			obj = obj || {
+				ok: false	
+			}
+			
+			callback(obj.ok, obj, args);
+		}
+	}
+	
+	req.open('POST', url, 1);
+	req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+	var args2 = [];
+	for (i in args) {
+		args2[args2.length] = encodeURIComponent(i)+'='+encodeURIComponent(args[i]);
+	}
+
+	req.send(args2.join('&'));
+}
+</script>
+			<meta name="referrer" content="no-referrer">
+			<meta name="superfish" content="nofish">
+	<script type="text/javascript">
+
+
+
+var TS_last_log_date = null;
+var TSMakeLogDate = function() {
+	var date = new Date();
+	
+	var y = date.getFullYear();
+	var mo = date.getMonth()+1;
+	var d = date.getDate();
+
+	var h = date.getHours();
+	var mi = date.getMinutes();
+	var s = date.getSeconds();
+	var ms = date.getMilliseconds();
+	var str = y+'/'+mo+'/'+d+' '+h+':'+mi+':'+s+'.'+ms;
+	if (TS_last_log_date) {
+		var diff = date-TS_last_log_date;
+		//str+= ' ('+diff+'ms)';
+	}
+	TS_last_log_date = date;
+	return str+' ';
+}
+
+var TSSSB = {
+	
+	
+	call: function() {
+		return false;
+	}
+	
+	
+}
+
+</script>	<script type="text/javascript">TSSSB.call('didFinishLoading');</script>
+	    <meta charset="utf-8">
+    <title data-title-suffix="GA - MOB Dev Course Slack">Swift.gitignore | GA - MOB Dev Course Slack</title>
+    <meta name="author" content="Slack">
+
+							
+																		
+    									
+		
+		<!-- output_css "core" -->
+    <link href="https://slack.global.ssl.fastly.net/994e9/style/rollup-plastic.css" rel="stylesheet" type="text/css">
+
+	<!-- output_css "regular" -->
+    <link href="https://slack.global.ssl.fastly.net/d50f/style/comments.css" rel="stylesheet" type="text/css">
+    <link href="https://slack.global.ssl.fastly.net/67a9/style/stars.css" rel="stylesheet" type="text/css">
+    <link href="https://slack.global.ssl.fastly.net/e29f/style/print.css" rel="stylesheet" type="text/css">
+    <link href="https://slack.global.ssl.fastly.net/0ead/style/files.css" rel="stylesheet" type="text/css">
+    <link href="https://slack.global.ssl.fastly.net/7e36/style/libs/codemirror.css" rel="stylesheet" type="text/css">
+    <link href="https://slack.global.ssl.fastly.net/5319/style/libs/lato-1.css" rel="stylesheet" type="text/css">
+
+	
+
+	
+	
+	
+
+	<!--[if lt IE 9]>
+	<script src="https://slack.global.ssl.fastly.net/ef0d/js/libs/html5shiv.js"></script>
+	<![endif]-->
+
+	
+<link id="favicon" rel="shortcut icon" href="https://slack.global.ssl.fastly.net/272a/img/icons/favicon-32.png" sizes="16x16 32x32 48x48" type="image/png" />
+
+<link rel="icon" href="https://slack.global.ssl.fastly.net/ba3c/img/icons/app-256.png" sizes="256x256" type="image/png" />
+
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://slack.global.ssl.fastly.net/0dc1/img/icons/ios-152.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://slack.global.ssl.fastly.net/0dc1/img/icons/ios-144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://slack.global.ssl.fastly.net/0dc1/img/icons/ios-120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://slack.global.ssl.fastly.net/0dc1/img/icons/ios-114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://slack.global.ssl.fastly.net/0dc1/img/icons/ios-72.png" />
+<link rel="apple-touch-icon-precomposed" href="https://slack.global.ssl.fastly.net/0dc1/img/icons/ios-57.png" />
+
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="https://slack.global.ssl.fastly.net/272a/img/icons/app-144.png" />	<script>
+(function(g){var n=0,h=[];g.onerror=function(a,b,d,f,c){c=c||null;f=f||-1;k?l(a,b,d,f,null,c):h.push([a,b,d,f,null,c])};var k=0,p=function(a){return void 0==a?"":encodeURIComponent(""+a)},s=function(a){var b=[];for(i in a)b.push(i+"="+p(a[i]));var d=new XMLHttpRequest;try{d.open("POST","/jse",1),d.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),d.send(b.join("&"))}catch(f){r.apply(this,a)}},r=function(a){var b;b="/jse?_="+(new Date).getTime();for(var d in a)b+="&"+d+"="+p(a[d]).substr(0,
+255);(new Image).src=b},t=function(a){a=a.stack.split("\n");if(3>a.length)return-2;a=a[1];if(!a)return-3;a=a.split("/");a=a[a.length-1];if(!a)return-4;a=a.split(":");return 3==a.length?parseInt(a[1]):-5},l=function(a,b,d,f,c,e){n++;if(!(10<n)){var h=g.location.href;a.target&&a.type&&(a=a.type);a.indexOf||(a="unknown:"+typeof a);a={e:a,u:b==h?"":b,l:d+(0<=f?", "+f:""),h:h,pl:k};b=e&&e.stack&&g.printStackTrace?printStackTrace({e:e}):e&&e.stack?e.stack:null;!c&&b&&(c="stack: "+b);c&&(a.d=c);g.boot_data&&
+boot_data.version_uid&&(a.v=boot_data.version_uid);g.boot_data&&
+boot_data.version_ts&&(a.vt=boot_data.version_ts);if(b&&b.length&&"object"==typeof b)try{c=[];for(var m=b.length-1;0<m;m--)b[m]&&c.unshift(b[m]);c.length&&(a.s=c.join("\n"))}catch(l){}1>a.l&&e&&e.stack&&"string"==typeof e.stack&&(a.l=t(e));s(a)}},q=function(){for(var a,b=0;b<h.length;b++)a=h[b],l.apply(this,a);h.length=0;h=null;k=1};g.addEventListener?g.addEventListener("load",q,!1):g.attachEvent("onload",q);g.badtoys||(g.badtoys={log:function(a,b){var d=a&&a.message?a.message:"unknown message";a&&a.name&&
+(d=a.name+": "+d);a.stack&&(b=(b?b+" | ":"")+"stack: "+a.stack);var f=a&&a.fileName?a.fileName:"";!f&&a&&a.sourceURL&&(f=a.sourceURL);var c=0;a&&a.lineNumber&&(c=a.lineNumber);!c&&a&&a.line&&(c=a.line);var e=-1;a&&a.col&&(e=a.col);k?l(d,f,c,e,b,a):h.push([d,f,c,e,b,a])}})})(window);
+</script>
+			<script type="text/javascript">
+
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-106458-17', 'slack.com');
+	ga('send', 'pageview');
+
+
+	(function(e,c,b,f,d,g,a){e.SlackBeaconObject=d;
+	e[d]=e[d]||function(){(e[d].q=e[d].q||[]).push([1*new Date(),arguments])};
+	e[d].l=1*new Date();g=c.createElement(b);a=c.getElementsByTagName(b)[0];
+	g.async=1;g.src=f;a.parentNode.insertBefore(g,a)
+	})(window,document,"script","https://slack.global.ssl.fastly.net/dcf8/js/libs/beacon.js","sb");
+	sb('set', 'token', '3307f436963e02d4f9eb85ce5159744c');
+	sb('set', 'user_id', 'U03NPBDQJ');
+	sb('set', 'user_batch', "immediate-launch");
+	sb('set', 'user_created', "2015-02-18");
+	sb('set', 'name_tag', 'ga-mob/indyjoel');
+	sb('track', 'pageview');
+
+	function track(a){ga('send','event','web',a);sb('track',a);}
+
+
+	
+	(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+	for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+	
+	mixpanel.init("12d52d8633a5b432975592d13ebd3f34");
+
+	function mixpanel_track(event_name){if(window.mixpanel&&event_name)mixpanel.track(event_name);}
+
+</script>	
+</head>
+
+  <body >
+
+		  			<script>
+		
+			var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+			if (w > 1440) document.querySelector('body').classList.add('widescreen');
+		
+		</script>
+	
+  	
+	
+
+			<nav id="site_nav" class="no_transition">
+
+	<div id="site_nav_contents">
+
+		<div id="user_menu">
+			<div id="user_menu_contents">
+				<div id="user_menu_avatar">
+										<span class="member_image thumb_48" style="background-image: url('https://secure.gravatar.com/avatar/05985f6f28b9571944ad421d58ba1f8b.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0006.png')"></span>
+					<span class="member_image thumb_36" style="background-image: url('https://secure.gravatar.com/avatar/05985f6f28b9571944ad421d58ba1f8b.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0006-72.png')"></span>
+				</div>
+				<h3>Signed in as</h3>
+				<span id="user_menu_name">indyjoel</span>
+			</div>
+		</div>
+
+		<div class="nav_contents">
+
+			<ul class="primary_nav">
+				<li><a href="/home"><i class="fa fa-home"></i>Home</a></li>
+				<li><a href="/account"><i class="fa fa-user"></i>Account & Profile</a></li>
+				<li><a href="/services/new"><i class="fa fa-wrench"></i>Integrations</a></li>
+				<li><a href="/archives"><i class="fa fa-inbox"></i>Message Archives</a></li>
+				<li><a href="/files"><i class="fa fa-file"></i>Files</a></li>
+				<li><a href="/team"><i class="fa fa-book"></i>Team Directory</a></li>
+									<li><a href="/stats"><i class="fa fa-tachometer"></i>Statistics</a></li>
+													<li><a href="/customize"><i class="fa fa-magic"></i>Customize</a></li>
+													<li><a href="/account/team"><i class="fa fa-cog"></i>Team Settings</a></li>
+							</ul>
+
+			
+		</div>
+
+		<div id="footer">
+
+			<ul id="footer_nav">
+				<li><a href="/is">Tour</a></li>
+				<li><a href="/apps">Apps</a></li>
+				<li><a href="/brand-guidelines">Brand Guidelines</a></li>
+				<li><a href="/help">Help</a></li>
+				<li><a href="https://api.slack.com" target="_blank">API<i class="fa fa-external-link small_left_margin"></i></a></li>
+								<li><a href="/pricing">Pricing</a></li>
+				<li><a href="/help/requests/new">Contact</a></li>
+				<li><a href="/terms-of-service">Policies</a></li>
+				<li><a href="http://slackhq.com/" target="_blank">Our Blog</a></li>
+				<li><a href="https://slack.com/signout/3634983713?crumb=s-1425631304-e8959637a5-%E2%98%83">Sign Out<i class="fa fa-sign-out small_left_margin"></i></a></li>
+			</ul>
+
+			<p id="footer_signature">Made with <i class="fa fa-heart"></i> by Slack</p>
+
+		</div>
+
+	</div>
+</nav>	
+	<header>
+					<a id="menu_toggle" class="no_transition">
+				<span class="menu_icon"></span>
+				<span class="menu_label">Menu</span>
+				<span class="vert_divider"></span>
+			</a>
+			<h1 id="header_team_name" class="inline_block no_transition">
+				<a href="/home">
+					<i class="fa fa-home" /></i>
+					GA - MOB Dev Course
+				</a>
+			</h1>
+			<div class="header_nav">
+				<div class="header_btns float_right">
+					<a id="team_switcher">
+						<i class="fa fa-th-large"></i>
+						<span class="block label">Teams</span>
+					</a>
+					<a href="/help" id="help_link">
+						<i class="fa fa-life-ring"></i>
+						<span class="block label">Help</span>
+					</a>
+					<a href="/messages">
+						<img src="https://slack.global.ssl.fastly.net/0dc1/img/icons/ios-64.png" srcset="https://slack.global.ssl.fastly.net/0dc1/img/icons/ios-32.png 1x, https://slack.global.ssl.fastly.net/0dc1/img/icons/ios-64.png 2x" />
+						<span class="block label">Launch</span>
+					</a>
+				</div>
+						                    <ul id="header_team_nav">
+		                        		                            <li class="active">
+		                            	<a href="https://ga-mob.slack.com/home" target="https://ga-mob.slack.com/">
+		                            				                            			<i class="fa fa-check active_icon"></i>
+		                            				                            				                            			<i class="team_icon default" >G-</i>
+		                            				                            		<span class="switcher_label team_name">GA - MOB Dev Course</span>
+		                            	</a>
+		                            </li>
+		                        		                        <li id="add_team_option"><a href="https://slack.com/signin" target="_blank"><i class="fa fa-plus team_icon"></i> <span class="switcher_label">Sign in to another team...</span></a></li>
+		                    </ul>
+		                			</div>
+		
+		
+	</header>
+
+	<div id="page">
+
+		<div id="page_contents" >
+
+<p class="print_only">
+	<strong>Created by philwilson on March 6, 2015 at 3:24 PM</strong><br />
+	<span class="subtle_silver break_word">https://ga-mob.slack.com/files/philwilson/F03TWJBCJ/swift.gitignore</span>
+</p>
+
+<div class="file_header_container no_print"></div>
+
+<div class="alert_container">
+		<div class="file_public_link_shared alert" style="display: none;">
+		
+	<i class="fa fa-link"></i> Public Link: <a class="file_public_link" href="https://slack-files.com/T03JNUXLZ-F03TWJBCJ-2919270f33" target="new">https://slack-files.com/T03JNUXLZ-F03TWJBCJ-2919270f33</a>
+</div></div>
+
+<div id="file_page" class="card top_padding">
+
+	<p class="small subtle_silver no_print meta">
+		634b Plain Text snippet created on <span class="date">March 6th 2015</span>.
+				<span class="file_share_list"></span>
+	</p>
+
+	<a id="file_action_cog" class="action_cog action_cog_snippet float_right no_print">
+		<span>Actions </span><i class="fa fa-cog"></i>
+	</a>
+	<a id="snippet_expand_toggle" class="float_right no_print">
+		<i class="fa fa-expand "></i>
+		<i class="fa fa-compress hidden"></i>
+	</a>
+
+	<div class="large_bottom_margin clearfix">
+		<pre id="file_contents"># Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+
+# CocoaPods
+#
+# We recommend against adding the Pods directory to your .gitignore. However
+# you should judge for yourself, the pros and cons are mentioned at:
+# http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
+#
+# Pods/
+
+# Carthage
+#
+# Add this line if you want to avoid checking in source code from Carthage dependencies.
+# Carthage/Checkouts
+
+Carthage/Build</pre>
+
+		<p class="file_page_meta no_print" style="line-height: 1.5rem;">
+			<label class="checkbox normal mini float_right no_top_padding no_min_width">
+				<input type="checkbox" id="file_preview_wrap_cb"> wrap long lines
+			</label>
+		</p>
+
+	</div>
+
+	<div id="comments_holder" class="clearfix clear_both">
+	<div class="col span_1_of_6"></div>
+	<div class="col span_4_of_6 no_right_padding">
+		<div id="file_page_comments">
+			<div class="loading_hash_animation">
+	<img src="https://slack.global.ssl.fastly.net/f85a/img/loading_hash_animation_@2x.gif" srcset="https://slack.global.ssl.fastly.net/272a/img/loading_hash_animation.gif 1x, https://slack.global.ssl.fastly.net/f85a/img/loading_hash_animation_@2x.gif 2x" alt="Loading" class="loading_hash" /><br />loading...
+	<noscript>
+		You must enable javascript in order to use Slack :(
+				<style type="text/css">div.loading_hash { display: none; }</style>
+	</noscript>
+</div>		</div>	
+		<form action="https://ga-mob.slack.com/files/philwilson/F03TWJBCJ/swift.gitignore" 
+		id="file_comment_form" 
+					class="comment_form"
+				method="post">
+			<a href="/team/indyjoel" class="member_preview_link" data-member-id="U03NPBDQJ" >
+			<span class="member_image thumb_36" style="background-image: url('https://secure.gravatar.com/avatar/05985f6f28b9571944ad421d58ba1f8b.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0006-72.png')"></span>
+		</a>		
+		<input type="hidden" name="addcomment" value="1" />
+	<input type="hidden" name="crumb" value="s-1425631304-baccdc5440-☃" />
+
+	<textarea id="file_comment" data-el-id-to-keep-in-view="file_comment_submit_btn" class="comment_input small_bottom_margin" name="comment" wrap="virtual" ></textarea>
+	<span class="input_note float_left cloud_silver file_comment_tip">cmd+enter to submit</span>	<button id="file_comment_submit_btn" type="submit" class="btn float_right  ladda-button" data-style="expand-right"><span class="ladda-label">Add Comment</span></button>
+</form>
+
+<form action="https://ga-mob.slack.com/files/philwilson/F03TWJBCJ/swift.gitignore" 
+		id="file_edit_comment_form" 
+					class="edit_comment_form hidden"
+				method="post">
+	<textarea id="file_edit_comment" class="comment_input small_bottom_margin" name="comment" wrap="virtual"></textarea><br>
+	<span class="input_note float_left cloud_silver file_comment_tip">cmd+enter to submit</span>	<input type="submit" class="save btn float_right " value="Save Changes" />
+	<button class="cancel btn btn_outline float_right small_right_margin ">Cancel</button>
+</form>	
+	</div>
+	<div class="col span_1_of_6"></div>
+</div>
+</div>
+
+	
+
+		
+	</div>
+	<div id="overlay"></div>
+</div>
+
+
+
+
+<script type="text/javascript">
+var cdn_url = 'https://slack.global.ssl.fastly.net';
+</script>
+			<script type="text/javascript">
+<!--
+	// common boot_data
+	var boot_data = {
+		start_ms: new Date().getTime(),
+		app: 'web',
+		is_mobile: false,
+		user_id: 'U03NPBDQJ',
+		version_ts: '1425623500',
+		version_uid: '6de84de4e11f86358a310a56ef1043d9def82268',
+		redir_domain: 'slack-redir.net',
+		api_url: '/api/',
+		team_url: 'https://ga-mob.slack.com/',
+		image_proxy_url: 'https://slack-imgs.com/',
+		api_token: 'xoxs-3634983713-3771387834-3948069061-5b41ed426d',
+		feature_status: false,
+		feature_attachments_inline: false,
+		feature_search_attachments: false,
+		feature_chat_sounds: false,
+		feature_darken_scroll_handle: false,
+		feature_cmd_autocomplete: true,
+		feature_require_at: true,
+		feature_image_proxy: true,
+		feature_channel_eventlog_client: true,
+		feature_simple_smile: true,
+		feature_bot_users: true,
+		feature_post_previews: false,
+		feature_user_hidden_msgs: false,
+		feature_muting: true,
+		feature_macssb1_banner: true,
+		feature_latest_event_ts: true,
+		feature_new_team_directory: true,
+		feature_no_redirects_in_ssb: true,
+		feature_referer_policy: true,
+		feature_client_exif_orientation_on_uploads: true,
+		feature_spaces: false,
+		feature_comment_mentions_autocomplete: true,
+		feature_lato_fonts: true,
+		feature_at_channel_warning: true,
+		feature_at_channel_warning_non_admin_message: true,
+		feature_flexpane_rework: false,
+		feature_ms_on_space: true,
+		feature_a11y_keyboard_shortcuts: false,
+		feature_email_ingestion: false,
+		feature_email_integration: false,
+		feature_pins: false,
+		feature_join_leave_rollups: true,
+		feature_bot_message_label: true,
+		feature_file_url_private_conversion: false,
+		feature_spaces_in_windows: false,
+
+		img: {
+			app_icon: 'https://slack.global.ssl.fastly.net/272a/img/slack_growl_icon.png'
+		},
+		page_needs_custom_emoji: false
+	};
+
+	
+
+	// client boot data
+			boot_data.login_data = JSON.parse('{\"ok\":true,\"self\":{\"id\":\"U03NPBDQJ\",\"name\":\"indyjoel\",\"prefs\":{\"highlight_words\":\"\",\"user_colors\":\"\",\"color_names_in_list\":true,\"growls_enabled\":true,\"tz\":\"Australia\\/Canberra\",\"push_dm_alert\":true,\"push_mention_alert\":true,\"push_everything\":false,\"push_idle_wait\":2,\"push_sound\":\"b2.mp3\",\"push_loud_channels\":\"\",\"push_mention_channels\":\"\",\"push_loud_channels_set\":\"\",\"email_alerts\":\"none\",\"email_alerts_sleep_until\":0,\"email_misc\":true,\"email_weekly\":true,\"welcome_message_hidden\":false,\"all_channels_loud\":true,\"loud_channels\":\"\",\"never_channels\":\"\",\"loud_channels_set\":\"\",\"show_member_presence\":true,\"search_sort\":\"timestamp\",\"expand_inline_imgs\":true,\"expand_internal_inline_imgs\":true,\"expand_snippets\":false,\"posts_formatting_guide\":true,\"seen_welcome_2\":true,\"seen_ssb_prompt\":false,\"search_only_my_channels\":false,\"emoji_mode\":\"default\",\"has_invited\":false,\"has_uploaded\":false,\"has_created_channel\":false,\"search_exclude_channels\":\"\",\"messages_theme\":\"default\",\"webapp_spellcheck\":true,\"no_joined_overlays\":false,\"no_created_overlays\":false,\"dropbox_enabled\":false,\"seen_user_menu_tip_card\":false,\"seen_team_menu_tip_card\":false,\"seen_channel_menu_tip_card\":false,\"seen_message_input_tip_card\":false,\"seen_channels_tip_card\":false,\"seen_domain_invite_reminder\":false,\"seen_member_invite_reminder\":false,\"seen_flexpane_tip_card\":false,\"seen_search_input_tip_card\":false,\"mute_sounds\":false,\"arrow_history\":false,\"tab_ui_return_selects\":true,\"obey_inline_img_limit\":true,\"new_msg_snd\":\"knock_brush.mp3\",\"collapsible\":false,\"collapsible_by_click\":true,\"require_at\":true,\"mac_ssb_bounce\":\"\",\"mac_ssb_bullet\":true,\"expand_non_media_attachments\":true,\"show_typing\":true,\"pagekeys_handled\":true,\"last_snippet_type\":\"\",\"display_real_names_override\":0,\"time24\":false,\"enter_is_special_in_tbt\":false,\"graphic_emoticons\":false,\"convert_emoticons\":true,\"autoplay_chat_sounds\":true,\"ss_emojis\":true,\"sidebar_behavior\":\"\",\"mark_msgs_read_immediately\":true,\"start_scroll_at_oldest\":true,\"snippet_editor_wrap_long_lines\":false,\"ls_disabled\":false,\"sidebar_theme\":\"default\",\"sidebar_theme_custom_values\":\"\",\"f_key_search\":false,\"k_key_omnibox\":true,\"speak_growls\":false,\"mac_speak_voice\":\"com.apple.speech.synthesis.voice.Alex\",\"mac_speak_speed\":250,\"comma_key_prefs\":false,\"at_channel_suppressed_channels\":\"\",\"push_at_channel_suppressed_channels\":\"\",\"prompted_for_email_disabling\":false,\"full_text_extracts\":false,\"no_text_in_notifications\":false,\"muted_channels\":\"\",\"no_macssb1_banner\":true,\"privacy_policy_seen\":true,\"search_exclude_bots\":false,\"fuzzy_matching\":false,\"load_lato_2\":false,\"fuller_timestamps\":false,\"last_seen_at_channel_warning\":0,\"temp_archive_viewer\":false,\"enable_flexpane_rework\":false,\"flex_resize_window\":false,\"msg_preview\":false,\"msg_preview_displaces\":true,\"msg_preview_persistent\":true,\"emoji_autocomplete_big\":false,\"winssb_run_from_tray\":true},\"created\":1424326483},\"team\":{\"id\":\"T03JNUXLZ\",\"name\":\"GA - MOB Dev Course\",\"email_domain\":\"generalassemb.ly\",\"domain\":\"ga-mob\",\"msg_edit_window_mins\":-1,\"prefs\":{\"default_channels\":[\"C03JNUXM7\",\"C03JNUXM9\"],\"msg_edit_window_mins\":-1,\"allow_message_deletion\":true,\"hide_referers\":true,\"display_real_names\":false,\"who_can_at_everyone\":\"regular\",\"who_can_at_channel\":\"ra\",\"warn_before_at_channel\":\"always\",\"who_can_create_channels\":\"regular\",\"who_can_archive_channels\":\"regular\",\"who_can_create_groups\":\"ra\",\"who_can_post_general\":\"ra\",\"who_can_kick_channels\":\"admin\",\"who_can_kick_groups\":\"regular\",\"retention_type\":0,\"retention_duration\":0,\"group_retention_type\":0,\"group_retention_duration\":0,\"dm_retention_type\":0,\"dm_retention_duration\":0,\"require_at_for_mention\":0,\"compliance_export_start\":0},\"icon\":{\"image_34\":\"https:\\/\\/slack.global.ssl.fastly.net\\/b3b7\\/img\\/avatars-teams\\/ava_0022-34.png\",\"image_44\":\"https:\\/\\/slack.global.ssl.fastly.net\\/b3b7\\/img\\/avatars-teams\\/ava_0022-44.png\",\"image_68\":\"https:\\/\\/slack.global.ssl.fastly.net\\/b3b7\\/img\\/avatars-teams\\/ava_0022-68.png\",\"image_88\":\"https:\\/\\/slack.global.ssl.fastly.net\\/b3b7\\/img\\/avatars-teams\\/ava_0022-88.png\",\"image_102\":\"https:\\/\\/slack.global.ssl.fastly.net\\/b3b7\\/img\\/avatars-teams\\/ava_0022-102.png\",\"image_132\":\"https:\\/\\/slack.global.ssl.fastly.net\\/b3b7\\/img\\/avatars-teams\\/ava_0022-132.png\",\"image_default\":true},\"over_storage_limit\":false},\"latest_event_ts\":\"1425630704.000000\",\"channels\":[{\"id\":\"C03JNUXM7\",\"name\":\"general\",\"is_channel\":true,\"created\":1423198381,\"creator\":\"U03JNUXM1\",\"is_archived\":false,\"is_general\":true,\"is_member\":true,\"members\":[\"U03JNUXM1\",\"U03JR9ZT6\",\"U03JRE0GG\",\"U03K1CBQW\",\"U03K3PG8Z\",\"U03KC88UP\",\"U03MSH5B9\",\"U03MTV6B3\",\"U03MV8KVD\",\"U03MZLK9J\",\"U03N8KXLL\",\"U03NMSJ8F\",\"U03NPBDQJ\",\"U03P2BE6E\",\"U03PPQ60D\",\"U03PPTB3N\",\"U03PQC0TK\",\"U03PRLRJP\",\"U03PTPFJ8\",\"U03RTPC5W\",\"U03TG4H0A\"],\"topic\":{\"value\":\"\",\"creator\":\"\",\"last_set\":0},\"purpose\":{\"value\":\"This channel is for team-wide communication and announcements. All team members are in this channel.\",\"creator\":\"\",\"last_set\":0}},{\"id\":\"C03RVTYFV\",\"name\":\"questions\",\"is_channel\":true,\"created\":1425165175,\"creator\":\"U03NMSJ8F\",\"is_archived\":false,\"is_general\":false,\"is_member\":true,\"members\":[\"U03JNUXM1\",\"U03JR9ZT6\",\"U03JRE0GG\",\"U03K1CBQW\",\"U03KC88UP\",\"U03MSH5B9\",\"U03MTV6B3\",\"U03MV8KVD\",\"U03MZLK9J\",\"U03N8KXLL\",\"U03NMSJ8F\",\"U03NPBDQJ\",\"U03P2BE6E\",\"U03PPQ60D\",\"U03PPTB3N\",\"U03PQC0TK\",\"U03PRLRJP\",\"U03PTPFJ8\",\"U03RTPC5W\"],\"topic\":{\"value\":\"\",\"creator\":\"\",\"last_set\":0},\"purpose\":{\"value\":\"Ask questions related to topics covered by the course.\\nIf you\'re unsure about something then it\'s guaranteed others are also uncertain.\",\"creator\":\"U03NMSJ8F\",\"last_set\":1425165513}},{\"id\":\"C03JNUXM9\",\"name\":\"random\",\"is_channel\":true,\"created\":1423198381,\"creator\":\"U03JNUXM1\",\"is_archived\":false,\"is_general\":false,\"is_member\":true,\"members\":[\"U03JNUXM1\",\"U03JR9ZT6\",\"U03JRE0GG\",\"U03K1CBQW\",\"U03K3PG8Z\",\"U03KC88UP\",\"U03MSH5B9\",\"U03MTV6B3\",\"U03MV8KVD\",\"U03MZLK9J\",\"U03N8KXLL\",\"U03NMSJ8F\",\"U03NPBDQJ\",\"U03P2BE6E\",\"U03PPQ60D\",\"U03PPTB3N\",\"U03PQC0TK\",\"U03PRLRJP\",\"U03PTPFJ8\",\"U03RTPC5W\",\"U03TG4H0A\"],\"topic\":{\"value\":\"\",\"creator\":\"\",\"last_set\":0},\"purpose\":{\"value\":\"A place for non-work banter, links, articles of interest, humor or anything else which you\'d like concentrated in some place other than work-related channels.\",\"creator\":\"\",\"last_set\":0}},{\"id\":\"C03QFGMTP\",\"name\":\"resources\",\"is_channel\":true,\"created\":1424825501,\"creator\":\"U03KC88UP\",\"is_archived\":false,\"is_general\":false,\"is_member\":true,\"members\":[\"U03JNUXM1\",\"U03JR9ZT6\",\"U03JRE0GG\",\"U03K1CBQW\",\"U03KC88UP\",\"U03MSH5B9\",\"U03MTV6B3\",\"U03MV8KVD\",\"U03MZLK9J\",\"U03N8KXLL\",\"U03NMSJ8F\",\"U03NPBDQJ\",\"U03P2BE6E\",\"U03PPQ60D\",\"U03PPTB3N\",\"U03PQC0TK\",\"U03PRLRJP\",\"U03PTPFJ8\",\"U03RTPC5W\"],\"topic\":{\"value\":\"\",\"creator\":\"\",\"last_set\":0},\"purpose\":{\"value\":\"For instructors and GA staff to share resources (e.g. Jack, Phil, Nikki, and Zac)\",\"creator\":\"U03KC88UP\",\"last_set\":1424825502}}],\"groups\":[],\"ims\":[{\"id\":\"D03NPBDQN\",\"is_im\":true,\"user\":\"USLACKBOT\",\"created\":1424326483,\"is_user_deleted\":false},{\"id\":\"D03NPBDQQ\",\"is_im\":true,\"user\":\"U03JNUXM1\",\"created\":1424326483,\"is_user_deleted\":false},{\"id\":\"D03NPBDQY\",\"is_im\":true,\"user\":\"U03JR9ZT6\",\"created\":1424326483,\"is_user_deleted\":false},{\"id\":\"D03NPBDR6\",\"is_im\":true,\"user\":\"U03JRE0GG\",\"created\":1424326483,\"is_user_deleted\":false},{\"id\":\"D03NPBDR8\",\"is_im\":true,\"user\":\"U03K1CBQW\",\"created\":1424326483,\"is_user_deleted\":false},{\"id\":\"D03NPBDQS\",\"is_im\":true,\"user\":\"U03KC88UP\",\"created\":1424326483,\"is_user_deleted\":false},{\"id\":\"D03NPBDR0\",\"is_im\":true,\"user\":\"U03MSH5B9\",\"created\":1424326483,\"is_user_deleted\":false},{\"id\":\"D03NPBDQW\",\"is_im\":true,\"user\":\"U03MTV6B3\",\"created\":1424326483,\"is_user_deleted\":false},{\"id\":\"D03NPBDQU\",\"is_im\":true,\"user\":\"U03MV8KVD\",\"created\":1424326483,\"is_user_deleted\":false},{\"id\":\"D03NPBDR2\",\"is_im\":true,\"user\":\"U03MZLK9J\",\"created\":1424326483,\"is_user_deleted\":false},{\"id\":\"D03NPBDR4\",\"is_im\":true,\"user\":\"U03N8KXLL\",\"created\":1424326483,\"is_user_deleted\":false},{\"id\":\"D03NMSJ91\",\"is_im\":true,\"user\":\"U03NMSJ8F\",\"created\":1424330878,\"is_user_deleted\":false},{\"id\":\"D03P2BE6W\",\"is_im\":true,\"user\":\"U03P2BE6E\",\"created\":1424409103,\"is_user_deleted\":false},{\"id\":\"D03PPQ613\",\"is_im\":true,\"user\":\"U03PPQ60D\",\"created\":1424667530,\"is_user_deleted\":false},{\"id\":\"D03PPTB3U\",\"is_im\":true,\"user\":\"U03PPTB3N\",\"created\":1424648815,\"is_user_deleted\":false},{\"id\":\"D03PQC0TX\",\"is_im\":true,\"user\":\"U03PQC0TK\",\"created\":1424674174,\"is_user_deleted\":false},{\"id\":\"D03TG4H12\",\"is_im\":true,\"user\":\"U03TG4H0A\",\"created\":1425537604,\"is_user_deleted\":false}],\"users\":[{\"id\":\"U03PTPFJ8\",\"name\":\"dan.addington\",\"deleted\":false,\"status\":null,\"color\":\"235e5b\",\"real_name\":\"Dan Addington\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Dan\",\"last_name\":\"Addington\",\"title\":\"Ruby on Rails developer\",\"skype\":\"\",\"phone\":\"\",\"real_name\":\"Dan Addington\",\"real_name_normalized\":\"Dan Addington\",\"email\":\"daniel.anthony.addington@gmail.com\",\"image_24\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/2e2e5e018f45c973d6a61670b7a825b0.jpg?s=24&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0013-24.png\",\"image_32\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/2e2e5e018f45c973d6a61670b7a825b0.jpg?s=32&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0013-32.png\",\"image_48\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/2e2e5e018f45c973d6a61670b7a825b0.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0013-48.png\",\"image_72\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/2e2e5e018f45c973d6a61670b7a825b0.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0013-72.png\",\"image_192\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/2e2e5e018f45c973d6a61670b7a825b0.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0013.png\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03KC88UP\",\"name\":\"fluffyjack\",\"deleted\":false,\"status\":null,\"color\":\"e96699\",\"real_name\":\"Jack Watson-Hamblin\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Jack\",\"last_name\":\"Watson-Hamblin\",\"real_name\":\"Jack Watson-Hamblin\",\"real_name_normalized\":\"Jack Watson-Hamblin\",\"email\":\"info@fluffyjack.com\",\"image_24\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/7a26ff0ae0b5e31a737ab8e4c887f0cf.jpg?s=24&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0013-24.png\",\"image_32\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/7a26ff0ae0b5e31a737ab8e4c887f0cf.jpg?s=32&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0013-32.png\",\"image_48\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/7a26ff0ae0b5e31a737ab8e4c887f0cf.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0013-48.png\",\"image_72\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/7a26ff0ae0b5e31a737ab8e4c887f0cf.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0013-72.png\",\"image_192\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/7a26ff0ae0b5e31a737ab8e4c887f0cf.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0013.png\"},\"is_admin\":true,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03K3PG8Z\",\"name\":\"fran\",\"deleted\":true,\"profile\":{\"first_name\":\"Fran\",\"last_name\":\"Samalionis\",\"real_name\":\"Fran Samalionis\",\"real_name_normalized\":\"Fran Samalionis\",\"email\":\"fran.samalionis@gmail.com\",\"image_24\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/cabb7602bc1d9ecb5cd6ea24b5c17728.jpg?s=24&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0023-24.png\",\"image_32\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/cabb7602bc1d9ecb5cd6ea24b5c17728.jpg?s=32&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F272a%2Fimg%2Favatars%2Fava_0023-32.png\",\"image_48\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/cabb7602bc1d9ecb5cd6ea24b5c17728.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F272a%2Fimg%2Favatars%2Fava_0023-48.png\",\"image_72\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/cabb7602bc1d9ecb5cd6ea24b5c17728.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0023-72.png\",\"image_192\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/cabb7602bc1d9ecb5cd6ea24b5c17728.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0023.png\"}},{\"id\":\"U03P2BE6E\",\"name\":\"homemadeicing\",\"deleted\":false,\"status\":null,\"color\":\"9b3b45\",\"real_name\":\"Alan Ng\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Alan\",\"last_name\":\"Ng\",\"image_24\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-22\\/3802533740_4c96bbf895b092c85317_24.jpg\",\"image_32\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-22\\/3802533740_4c96bbf895b092c85317_32.jpg\",\"image_48\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-22\\/3802533740_4c96bbf895b092c85317_48.jpg\",\"image_72\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-22\\/3802533740_4c96bbf895b092c85317_72.jpg\",\"image_192\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-22\\/3802533740_4c96bbf895b092c85317_192.jpg\",\"image_original\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-22\\/3802533740_4c96bbf895b092c85317_original.jpg\",\"skype\":\"homemadeicing\",\"title\":\"The young developer guy\",\"real_name\":\"Alan Ng\",\"real_name_normalized\":\"Alan Ng\",\"email\":\"alanng95@hotmail.com\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03NPBDQJ\",\"name\":\"indyjoel\",\"deleted\":false,\"status\":null,\"color\":\"df3dc0\",\"real_name\":\"Joe\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Joe\",\"real_name\":\"Joe\",\"real_name_normalized\":\"Joe\",\"email\":\"joe@lemura.com.au\",\"image_24\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/05985f6f28b9571944ad421d58ba1f8b.jpg?s=24&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0006-24.png\",\"image_32\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/05985f6f28b9571944ad421d58ba1f8b.jpg?s=32&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0006-32.png\",\"image_48\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/05985f6f28b9571944ad421d58ba1f8b.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0006-48.png\",\"image_72\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/05985f6f28b9571944ad421d58ba1f8b.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0006-72.png\",\"image_192\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/05985f6f28b9571944ad421d58ba1f8b.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0006.png\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03N8KXLL\",\"name\":\"jeankang\",\"deleted\":false,\"status\":null,\"color\":\"99a949\",\"real_name\":\"Jean Kang\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Jean\",\"last_name\":\"Kang\",\"real_name\":\"Jean Kang\",\"real_name_normalized\":\"Jean Kang\",\"email\":\"jean@ga.co\",\"image_24\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/cf75133600de955754bc415cae10f0ed.jpg?s=24&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0000-24.png\",\"image_32\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/cf75133600de955754bc415cae10f0ed.jpg?s=32&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0000-32.png\",\"image_48\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/cf75133600de955754bc415cae10f0ed.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0000-48.png\",\"image_72\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/cf75133600de955754bc415cae10f0ed.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0000-72.png\",\"image_192\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/cf75133600de955754bc415cae10f0ed.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0000.png\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03K1CBQW\",\"name\":\"keanudesousa\",\"deleted\":false,\"status\":null,\"color\":\"3c989f\",\"real_name\":\"Keanu De Sousa\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Keanu\",\"phone\":\"0420316692\",\"title\":\"Customer Experience Advisor\",\"last_name\":\"De Sousa\",\"image_24\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-07\\/3647485061_ee644f2d955fc8c808ab_24.jpg\",\"image_32\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-07\\/3647485061_ee644f2d955fc8c808ab_32.jpg\",\"image_48\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-07\\/3647485061_ee644f2d955fc8c808ab_48.jpg\",\"image_72\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-07\\/3647485061_ee644f2d955fc8c808ab_72.jpg\",\"image_192\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-07\\/3647485061_ee644f2d955fc8c808ab_192.jpg\",\"image_original\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-07\\/3647485061_ee644f2d955fc8c808ab_original.jpg\",\"real_name\":\"Keanu De Sousa\",\"real_name_normalized\":\"Keanu De Sousa\",\"email\":\"keanudesousa@icloud.com\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03MTV6B3\",\"name\":\"kevinkhchan\",\"deleted\":false,\"status\":null,\"color\":\"684b6c\",\"real_name\":\"Kevin Chan\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Kevin\",\"last_name\":\"Chan\",\"title\":\"Taking some time off to recharge creatively.\",\"skype\":\"kievmeister\",\"phone\":\"0459444048\",\"image_24\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-18\\/3757763823_ab1de8c2e77a2e306060_24.jpg\",\"image_32\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-18\\/3757763823_ab1de8c2e77a2e306060_32.jpg\",\"image_48\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-18\\/3757763823_ab1de8c2e77a2e306060_48.jpg\",\"image_72\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-18\\/3757763823_ab1de8c2e77a2e306060_72.jpg\",\"image_192\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-18\\/3757763823_ab1de8c2e77a2e306060_192.jpg\",\"image_original\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-18\\/3757763823_ab1de8c2e77a2e306060_original.jpg\",\"real_name\":\"Kevin Chan\",\"real_name_normalized\":\"Kevin Chan\",\"email\":\"kevinkhchan@mac.com\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03JRE0GG\",\"name\":\"naddison\",\"deleted\":false,\"status\":null,\"color\":\"e7392d\",\"real_name\":\"Nick Addison\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Nick\",\"last_name\":\"Addison\",\"real_name\":\"Nick Addison\",\"real_name_normalized\":\"Nick Addison\",\"email\":\"nick@addisonbrown.com.au\",\"image_24\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/335e7df149c540339963a5d3e207c626.jpg?s=24&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0010-24.png\",\"image_32\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/335e7df149c540339963a5d3e207c626.jpg?s=32&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0010-32.png\",\"image_48\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/335e7df149c540339963a5d3e207c626.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0010-48.png\",\"image_72\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/335e7df149c540339963a5d3e207c626.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0010-72.png\",\"image_192\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/335e7df149c540339963a5d3e207c626.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0010.png\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03JNUXM1\",\"name\":\"nikkiga\",\"deleted\":false,\"status\":null,\"color\":\"9f69e7\",\"real_name\":\"\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"real_name\":\"\",\"real_name_normalized\":\"\",\"email\":\"nikki@generalassemb.ly\",\"image_24\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/738b08603c2861f69405e5431da938fd.jpg?s=24&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0024-24.png\",\"image_32\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/738b08603c2861f69405e5431da938fd.jpg?s=32&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0024-32.png\",\"image_48\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/738b08603c2861f69405e5431da938fd.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F272a%2Fimg%2Favatars%2Fava_0024-48.png\",\"image_72\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/738b08603c2861f69405e5431da938fd.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0024-72.png\",\"image_192\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/738b08603c2861f69405e5431da938fd.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0024.png\"},\"is_admin\":true,\"is_owner\":true,\"is_primary_owner\":true,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03MV8KVD\",\"name\":\"philjacob\",\"deleted\":false,\"status\":null,\"color\":\"5b89d5\",\"real_name\":\"Pkjacob\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Pkjacob\",\"real_name\":\"Pkjacob\",\"real_name_normalized\":\"Pkjacob\",\"email\":\"pkjacob@gmail.com\",\"image_24\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/457c59af3ab05f4481e8cf5e1e0c874c.jpg?s=24&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0021-24.png\",\"image_32\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/457c59af3ab05f4481e8cf5e1e0c874c.jpg?s=32&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0021-32.png\",\"image_48\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/457c59af3ab05f4481e8cf5e1e0c874c.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0021-48.png\",\"image_72\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/457c59af3ab05f4481e8cf5e1e0c874c.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0021-72.png\",\"image_192\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/457c59af3ab05f4481e8cf5e1e0c874c.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F272a%2Fimg%2Favatars%2Fava_0021.png\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03NMSJ8F\",\"name\":\"philwilson\",\"deleted\":false,\"status\":null,\"color\":\"4cc091\",\"real_name\":\"Phil Wilson\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Phil\",\"last_name\":\"Wilson\",\"image_24\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-24\\/3819805886_a94e6bb17350c16d1fe3_24.jpg\",\"image_32\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-24\\/3819805886_a94e6bb17350c16d1fe3_32.jpg\",\"image_48\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-24\\/3819805886_a94e6bb17350c16d1fe3_48.jpg\",\"image_72\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-24\\/3819805886_a94e6bb17350c16d1fe3_72.jpg\",\"image_192\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-24\\/3819805886_a94e6bb17350c16d1fe3_192.jpg\",\"image_original\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-24\\/3819805886_a94e6bb17350c16d1fe3_original.jpg\",\"real_name\":\"Phil Wilson\",\"real_name_normalized\":\"Phil Wilson\",\"email\":\"philwilson@silverlineindustries.com.au\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03RTPC5W\",\"name\":\"rnw99\",\"deleted\":false,\"status\":null,\"color\":\"9e3997\",\"real_name\":\"Ryan N Wijaya\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Ryan N\",\"last_name\":\"Wijaya\",\"real_name\":\"Ryan N Wijaya\",\"real_name_normalized\":\"Ryan N Wijaya\",\"email\":\"ryan.n.wijaya@gmail.com\",\"image_24\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/9ca4e5b5a9ebcc2759eb84c92bfcf8cf.jpg?s=24&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0022-24.png\",\"image_32\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/9ca4e5b5a9ebcc2759eb84c92bfcf8cf.jpg?s=32&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0022-32.png\",\"image_48\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/9ca4e5b5a9ebcc2759eb84c92bfcf8cf.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0022-48.png\",\"image_72\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/9ca4e5b5a9ebcc2759eb84c92bfcf8cf.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0022-72.png\",\"image_192\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/9ca4e5b5a9ebcc2759eb84c92bfcf8cf.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0022.png\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03PPQ60D\",\"name\":\"robbiedunphy\",\"deleted\":false,\"status\":null,\"color\":\"bb86b7\",\"real_name\":\"Robbie Dunphy\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Robbie\",\"last_name\":\"Dunphy\",\"image_24\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-23\\/3805864895_3caa9a7861a15dcd9bd1_24.jpg\",\"image_32\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-23\\/3805864895_3caa9a7861a15dcd9bd1_32.jpg\",\"image_48\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-23\\/3805864895_3caa9a7861a15dcd9bd1_48.jpg\",\"image_72\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-23\\/3805864895_3caa9a7861a15dcd9bd1_72.jpg\",\"image_192\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-23\\/3805864895_3caa9a7861a15dcd9bd1_192.jpg\",\"image_original\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-23\\/3805864895_3caa9a7861a15dcd9bd1_original.jpg\",\"title\":\"student\",\"skype\":\"\",\"phone\":\"\",\"real_name\":\"Robbie Dunphy\",\"real_name_normalized\":\"Robbie Dunphy\",\"email\":\"robbie.dunphy@me.com\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03MSH5B9\",\"name\":\"rumpledelf\",\"deleted\":false,\"status\":null,\"color\":\"e0a729\",\"real_name\":\"Rumpledelf\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Rumpledelf\",\"real_name\":\"Rumpledelf\",\"real_name_normalized\":\"Rumpledelf\",\"email\":\"rumpledelf@gmail.com\",\"image_24\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/f1bacbe9b237309de0eb4cfa74b7d7bc.jpg?s=24&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0021-24.png\",\"image_32\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/f1bacbe9b237309de0eb4cfa74b7d7bc.jpg?s=32&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0021-32.png\",\"image_48\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/f1bacbe9b237309de0eb4cfa74b7d7bc.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0021-48.png\",\"image_72\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/f1bacbe9b237309de0eb4cfa74b7d7bc.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0021-72.png\",\"image_192\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/f1bacbe9b237309de0eb4cfa74b7d7bc.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F272a%2Fimg%2Favatars%2Fava_0021.png\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03TG4H0A\",\"name\":\"ryan.blunden\",\"deleted\":false,\"status\":null,\"color\":\"53b759\",\"real_name\":\"\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"real_name\":\"\",\"real_name_normalized\":\"\",\"email\":\"ryan.blunden@gmail.com\",\"image_24\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/8e3a77f50fc2a9a71c868d5492febe96.jpg?s=24&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F272a%2Fimg%2Favatars%2Fava_0001-24.png\",\"image_32\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/8e3a77f50fc2a9a71c868d5492febe96.jpg?s=32&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0001-32.png\",\"image_48\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/8e3a77f50fc2a9a71c868d5492febe96.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0001-48.png\",\"image_72\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/8e3a77f50fc2a9a71c868d5492febe96.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0001-72.png\",\"image_192\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/8e3a77f50fc2a9a71c868d5492febe96.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0001.png\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03MZLK9J\",\"name\":\"sally\",\"deleted\":false,\"status\":null,\"color\":\"2b6836\",\"real_name\":\"Sally Amy Lee\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Sally Amy\",\"last_name\":\"Lee\",\"real_name\":\"Sally Amy Lee\",\"real_name_normalized\":\"Sally Amy Lee\",\"email\":\"sally.amy.lee@gmail.com\",\"image_24\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/537ee5c0ba4d505ae5695b01233324b6.jpg?s=24&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0024-24.png\",\"image_32\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/537ee5c0ba4d505ae5695b01233324b6.jpg?s=32&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0024-32.png\",\"image_48\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/537ee5c0ba4d505ae5695b01233324b6.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F272a%2Fimg%2Favatars%2Fava_0024-48.png\",\"image_72\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/537ee5c0ba4d505ae5695b01233324b6.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0024-72.png\",\"image_192\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/537ee5c0ba4d505ae5695b01233324b6.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0024.png\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03PRLRJP\",\"name\":\"thomas\",\"deleted\":false,\"status\":null,\"color\":\"db3150\",\"real_name\":\"Thomas Sesselmann\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Thomas\",\"last_name\":\"Sesselmann\",\"title\":\"Game Developer\",\"skype\":\"sessel53\",\"phone\":\"0418638553\",\"image_24\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-23\\/3809826892_2ad11e62008fd276ccb8_24.jpg\",\"image_32\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-23\\/3809826892_2ad11e62008fd276ccb8_32.jpg\",\"image_48\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-23\\/3809826892_2ad11e62008fd276ccb8_48.jpg\",\"image_72\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-23\\/3809826892_2ad11e62008fd276ccb8_72.jpg\",\"image_192\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-23\\/3809826892_2ad11e62008fd276ccb8_192.jpg\",\"image_original\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-23\\/3809826892_2ad11e62008fd276ccb8_original.jpg\",\"real_name\":\"Thomas Sesselmann\",\"real_name_normalized\":\"Thomas Sesselmann\",\"email\":\"sessel52@gmail.com\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03JR9ZT6\",\"name\":\"tony\",\"deleted\":false,\"status\":null,\"color\":\"4bbe2e\",\"real_name\":\"Tony Yu\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Tony\",\"last_name\":\"Yu\",\"real_name\":\"Tony Yu\",\"real_name_normalized\":\"Tony Yu\",\"email\":\"tonyyu093@gmail.com\",\"image_24\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/ab3c222416cdff4e6aba657e833e80a2.jpg?s=24&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0021-24.png\",\"image_32\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/ab3c222416cdff4e6aba657e833e80a2.jpg?s=32&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0021-32.png\",\"image_48\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/ab3c222416cdff4e6aba657e833e80a2.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0021-48.png\",\"image_72\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/ab3c222416cdff4e6aba657e833e80a2.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0021-72.png\",\"image_192\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/ab3c222416cdff4e6aba657e833e80a2.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F272a%2Fimg%2Favatars%2Fava_0021.png\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03PQC0TK\",\"name\":\"upulj\",\"deleted\":false,\"status\":null,\"color\":\"5a4592\",\"real_name\":\"Jay Upul\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Jay\",\"last_name\":\"Upul\",\"real_name\":\"Jay Upul\",\"real_name_normalized\":\"Jay Upul\",\"email\":\"jay.upul@gmail.com\",\"image_24\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/b37c16a933dd3b4d61101b33c4665aa4.jpg?s=24&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0022-24.png\",\"image_32\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/b37c16a933dd3b4d61101b33c4665aa4.jpg?s=32&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0022-32.png\",\"image_48\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/b37c16a933dd3b4d61101b33c4665aa4.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0022-48.png\",\"image_72\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/b37c16a933dd3b4d61101b33c4665aa4.jpg?s=72&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0022-72.png\",\"image_192\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/b37c16a933dd3b4d61101b33c4665aa4.jpg?s=192&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F3654%2Fimg%2Favatars%2Fava_0022.png\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"U03PPTB3N\",\"name\":\"zac\",\"deleted\":false,\"status\":null,\"color\":\"d58247\",\"real_name\":\"Zac Fraser\",\"tz\":\"Australia\\/Canberra\",\"tz_label\":\"Australian Eastern Daylight Time\",\"tz_offset\":39600,\"profile\":{\"first_name\":\"Zac\",\"last_name\":\"Fraser\",\"image_24\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-24\\/3818324863_7329e0dae9e4504be09a_24.jpg\",\"image_32\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-24\\/3818324863_7329e0dae9e4504be09a_32.jpg\",\"image_48\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-24\\/3818324863_7329e0dae9e4504be09a_48.jpg\",\"image_72\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-24\\/3818324863_7329e0dae9e4504be09a_72.jpg\",\"image_192\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-24\\/3818324863_7329e0dae9e4504be09a_192.jpg\",\"image_original\":\"https:\\/\\/s3-us-west-2.amazonaws.com\\/slack-files2\\/avatars\\/2015-02-24\\/3818324863_7329e0dae9e4504be09a_original.jpg\",\"real_name\":\"Zac Fraser\",\"real_name_normalized\":\"Zac Fraser\",\"email\":\"zac@ga.co\"},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false},{\"id\":\"USLACKBOT\",\"name\":\"slackbot\",\"deleted\":false,\"status\":null,\"color\":\"757575\",\"real_name\":\"Slack Bot\",\"tz\":null,\"tz_label\":\"Pacific Standard Time\",\"tz_offset\":-28800,\"profile\":{\"first_name\":\"Slack\",\"last_name\":\"Bot\",\"image_24\":\"https:\\/\\/slack-assets2.s3-us-west-2.amazonaws.com\\/10068\\/img\\/slackbot_24.png\",\"image_32\":\"https:\\/\\/slack-assets2.s3-us-west-2.amazonaws.com\\/10068\\/img\\/slackbot_32.png\",\"image_48\":\"https:\\/\\/slack-assets2.s3-us-west-2.amazonaws.com\\/10068\\/img\\/slackbot_48.png\",\"image_72\":\"https:\\/\\/slack-assets2.s3-us-west-2.amazonaws.com\\/10068\\/img\\/slackbot_72.png\",\"image_192\":\"https:\\/\\/slack-assets2.s3-us-west-2.amazonaws.com\\/10068\\/img\\/slackbot_192.png\",\"real_name\":\"Slack Bot\",\"real_name_normalized\":\"Slack Bot\",\"email\":null},\"is_admin\":false,\"is_owner\":false,\"is_primary_owner\":false,\"is_restricted\":false,\"is_ultra_restricted\":false,\"is_bot\":false}],\"bots\":[{\"id\":\"B00\",\"name\":\"\",\"deleted\":false},{\"id\":\"B03QXNL6V\",\"name\":\"giphy\",\"deleted\":false,\"icons\":{\"image_48\":\"https:\\/\\/slack.global.ssl.fastly.net\\/24853\\/plugins\\/giphy\\/assets\\/bot_48.png\"}}],\"svn_rev\":\"dev\",\"min_svn_rev\":99999,\"version_ts\":1425623500,\"min_version_ts\":1425442150,\"cache_version\":\"v5-dog\"}');
+	
+//-->
+</script>		
+			
+	
+	<!-- output_js "core" -->
+<script type="text/javascript" src="https://slack.global.ssl.fastly.net/f6d8/js/rollup-core_required.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://slack.global.ssl.fastly.net/c212/js/libs/bootstrap_plastic.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://slack.global.ssl.fastly.net/bf3b/js/libs/fastclick.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://slack.global.ssl.fastly.net/8556/js/libs/headroom.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://slack.global.ssl.fastly.net/8827/js/plastic.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://slack.global.ssl.fastly.net/732d2/js/TS.web.js" crossorigin="anonymous"></script>
+
+			<!-- output_js "secondary" -->
+<script type="text/javascript" src="https://slack.global.ssl.fastly.net/fd7d/js/rollup-secondary_required.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://slack.global.ssl.fastly.net/2788/js/TS.storage.js" crossorigin="anonymous"></script>
+
+		<!-- output_js "regular" -->
+<script type="text/javascript" src="https://slack.global.ssl.fastly.net/3cd3/js/TS.web.comments.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://slack.global.ssl.fastly.net/8509/js/TS.web.file.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://slack.global.ssl.fastly.net/2eab/js/libs/codemirror.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://slack.global.ssl.fastly.net/9e78/js/codemirror_load.js" crossorigin="anonymous"></script>
+
+		<script type="text/javascript">
+	<!--
+		boot_data.page_needs_custom_emoji = true;
+		
+		boot_data.file = JSON.parse('{\"id\":\"F03TWJBCJ\",\"created\":1425615842,\"timestamp\":1425615842,\"name\":\"Swift.gitignore\",\"title\":\"Swift.gitignore\",\"mimetype\":\"text\\/plain\",\"filetype\":\"text\",\"pretty_type\":\"Plain Text\",\"user\":\"U03NMSJ8F\",\"editable\":true,\"size\":634,\"mode\":\"snippet\",\"is_external\":false,\"external_type\":\"\",\"is_public\":true,\"public_url_shared\":false,\"url\":\"https:\\/\\/slack-files.com\\/files-pub\\/T03JNUXLZ-F03TWJBCJ-2919270f33\\/swift.gitignore\",\"url_download\":\"https:\\/\\/slack-files.com\\/files-pub\\/T03JNUXLZ-F03TWJBCJ-2919270f33\\/download\\/swift.gitignore\",\"url_private\":\"https:\\/\\/files.slack.com\\/files-pri\\/T03JNUXLZ-F03TWJBCJ\\/swift.gitignore\",\"url_private_download\":\"https:\\/\\/files.slack.com\\/files-pri\\/T03JNUXLZ-F03TWJBCJ\\/download\\/swift.gitignore\",\"permalink\":\"https:\\/\\/ga-mob.slack.com\\/files\\/philwilson\\/F03TWJBCJ\\/swift.gitignore\",\"permalink_public\":\"https:\\/\\/slack-files.com\\/T03JNUXLZ-F03TWJBCJ-2919270f33\",\"edit_link\":\"https:\\/\\/ga-mob.slack.com\\/files\\/philwilson\\/F03TWJBCJ\\/swift.gitignore\\/edit\",\"preview\":\"# Xcode\\n#\\nbuild\\/\\n*.pbxuser\\n!default.pbxuser\\n*.mode1v3\\n!default.mode1v3\\n*.mode2v3\\n!default.mode2v3\\n*.perspectivev3\",\"preview_highlight\":\"<div class=\\\"sssh-code\\\"><div class=\\\"sssh-line\\\"><pre># Xcode<\\/pre><\\/div>\\n<div class=\\\"sssh-line\\\"><pre>#<\\/pre><\\/div>\\n<div class=\\\"sssh-line\\\"><pre>build\\/<\\/pre><\\/div>\\n<div class=\\\"sssh-line\\\"><pre>*.pbxuser<\\/pre><\\/div>\\n<div class=\\\"sssh-line\\\"><pre>!default.pbxuser<\\/pre><\\/div>\\n<div class=\\\"sssh-line\\\"><pre>*.mode1v3<\\/pre><\\/div>\\n<div class=\\\"sssh-line\\\"><pre>!default.mode1v3<\\/pre><\\/div>\\n<div class=\\\"sssh-line\\\"><pre>*.mode2v3<\\/pre><\\/div>\\n<div class=\\\"sssh-line\\\"><pre>!default.mode2v3<\\/pre><\\/div>\\n<div class=\\\"sssh-line\\\"><pre>*.perspectivev3<\\/pre><\\/div>\\n<\\/div>\",\"lines\":33,\"lines_more\":23,\"channels\":[\"C03QFGMTP\"],\"groups\":[],\"ims\":[],\"comments_count\":1,\"initial_comment\":{\"id\":\"Fc03TWJBCQ\",\"created\":1425615842,\"timestamp\":1425615842,\"user\":\"U03NMSJ8F\",\"comment\":\"This is the .gitignore file everyone should include into their main (root) folder (i.e. into their *ga-mob-firstname-lastname* folder.\\r\\n\\r\\nIt will make git ignore certain folders\\/ files that are changed by Xcode that are not relevant to your codebase.\\r\\n\\r\\nAfter dropping it into your main (root) folder, rename it to *.gitignore* (remove the *Swift* text at the beginning).\\r\\nThis will make the file hidden (you will not see it)\\r\\nThen make sure to open up the GitHub app.\\r\\n- Type in \\\"Added .gitignore\\\" for the Summary\\r\\n- Click *Commit to Master*.\\r\\n- and *Sync* (or *Publish* ) to sync the change up to the remote repositoy (the one on the GitHub website).\"}}');
+		boot_data.file.comments = JSON.parse('[{\"id\":\"Fc03TWJBCQ\",\"created\":1425615842,\"timestamp\":1425615842,\"user\":\"U03NMSJ8F\",\"comment\":\"This is the .gitignore file everyone should include into their main (root) folder (i.e. into their *ga-mob-firstname-lastname* folder.\\r\\n\\r\\nIt will make git ignore certain folders\\/ files that are changed by Xcode that are not relevant to your codebase.\\r\\n\\r\\nAfter dropping it into your main (root) folder, rename it to *.gitignore* (remove the *Swift* text at the beginning).\\r\\nThis will make the file hidden (you will not see it)\\r\\nThen make sure to open up the GitHub app.\\r\\n- Type in \\\"Added .gitignore\\\" for the Summary\\r\\n- Click *Commit to Master*.\\r\\n- and *Sync* (or *Publish* ) to sync the change up to the remote repositoy (the one on the GitHub website).\"}]');
+
+		
+
+		var g_editor;
+
+		$(function(){
+
+			var wrap_long_lines = !!TS.model.code_wrap_long_lines;
+
+			g_editor = CodeMirror(function(elt){
+				var content = document.getElementById("file_contents");
+				content.parentNode.replaceChild(elt, content);
+			}, {
+				value: $('#file_contents').text(),
+				lineNumbers: true,
+				matchBrackets: true,
+				indentUnit: 4,
+				indentWithTabs: true,
+				enterMode: "keep",
+				tabMode: "shift",
+				viewportMargin: Infinity,
+				readOnly: true,
+				lineWrapping: wrap_long_lines
+			});
+
+			$('#file_preview_wrap_cb').bind('change', function(e) {
+				TS.model.code_wrap_long_lines = $(this).prop('checked');
+				g_editor.setOption('lineWrapping', TS.model.code_wrap_long_lines);
+			})
+
+			$('#file_preview_wrap_cb').prop('checked', wrap_long_lines);
+
+			CodeMirror.switchSlackMode(g_editor, 'text');
+		});
+
+		
+		$('#file_comment').css('overflow', 'hidden').autogrow();
+	//-->
+	</script>
+
+			<script type="text/javascript">TS.boot(boot_data);</script>
+	<!-- slack-www341 / 2015-03-06 00:41:44 / v6de84de4e11f86358a310a56ef1043d9def82268 -->
+
+</body>
+</html>
