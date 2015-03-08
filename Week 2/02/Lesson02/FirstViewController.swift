@@ -9,9 +9,20 @@
 import UIKit
 
 class FirstViewController: UIViewController {
+    
+    
+    /* JCL
+    I misread and misunderstood what was required so i added
+    the extra functions to the label box
+    following reviews i have now added them to the println as directed
+    */
+    
+    
     /*
     TODO one: hook up a button in interface builder to a new function (to be written) in this class. Also hook up the label to this class. When the button is clicked, the function to be written must make a label say ‘hello world!’
     */
+    
+    
    func todoOne()
    {
     labelOne.text = "hello world!"
@@ -37,8 +48,8 @@ class FirstViewController: UIViewController {
         if (name.text != "" && age.text != "")
         {
             let templabelOne : String? = labelOne.text
-            labelOne.text = labelOne.text! + "\n" + "Hello \(name.text), you are \(age.text) years old"
-            //labelOne.text = templabelOne! +  "Hello \(name.text), you are \(age.text) years old"
+            //labelOne.text = labelOne.text! + "\n" + "Hello \(name.text), you are \(age.text) years old"
+            println("Hello \(name.text), you are \(age.text) years old")
         }
     }
     
@@ -46,22 +57,27 @@ class FirstViewController: UIViewController {
     /*
     TODO three: Hook up the button to a NEW function (in addition to the two above). Print “You can drink” below the above text if the user is above 21. If they are above 18, print “you can vote”. If they are above 16, print “You can drive”
     */
+    
+    
     func todoThree()
     {
         if (name.text != "" && age.text != "")
         {
         if (age.text.toInt() >= 21)
         {
-            labelOne.text = labelOne.text! + "\n" + "you can drink"
+            //labelOne.text = labelOne.text! + "\n" + "you can drink"
+            println("you can drink")
         } else
         if (age.text.toInt() >= 18)
         {
-            labelOne.text = labelOne.text! + "\n" + "you can vote"
+            //labelOne.text = labelOne.text! + "\n" + "you can vote"
+            println("you can vote")
         } else
         if (age.text.toInt() >= 16)
         {
             labelOne.text = labelOne.text! + "\n" + "you can drive"
-        }
+            println("you can drive")
+            }
         }
     }
 
@@ -70,22 +86,26 @@ class FirstViewController: UIViewController {
     TODO four: Hook up the button to a NEW function (in additino to the three above). Print “you can drive” if the user is above 16 but below 18. It should print “You can drive and vote” if the user is above 18 but below 21. If the user is above 21, it should print “you can drive, vote and drink (but not at the same time!”.
     */
     
+    
     func todoFour()
     {
         if (name.text != "" && age.text != "")
         {
         if (age.text.toInt()! >= 16) && (age.text.toInt() < 18)
         {
-            labelOne.text = labelOne.text! + "\n" + "you can drive"
+            //labelOne.text = labelOne.text! + "\n" + "you can drive"
+            println("you can drive")
         } else
         if (age.text.toInt()! >= 18) && (age.text.toInt() < 21)
         {
-            labelOne.text = labelOne.text! + "\n" + "you can drive and vote"
+            //labelOne.text = labelOne.text! + "\n" + "you can drive and vote"
+            println("you can drive and vote")
         } else
         if (age.text.toInt()! >= 21)
         {
-            labelOne.text = labelOne.text! + "\n" + "you can drive and vote and drink"
-        }
+            //labelOne.text = labelOne.text! + "\n" + "you can drive and vote and drink"
+            println("you can drive and vote and drink")
+            }
         }
     }
     
