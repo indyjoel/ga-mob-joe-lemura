@@ -15,6 +15,7 @@ class FirstViewController: UIViewController {
     I misread and misunderstood what was required so i added
     the extra functions to the label box
     following reviews i have now added them to the println as directed
+    Final Submission
     */
     
     
