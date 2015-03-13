@@ -6,14 +6,14 @@ class Player {
     
     // Properties
     
-    let name : String
-    let health : Int
+    //let name : String
+    var health : Int
     let goodOrBad : String
     
     // Create Initializer
-    init(name : String, health : Int, goodOrBad : String)
+    init( health : Int, goodOrBad : String)
     {
-        self.name  = name
+      //  self.name  = name
         self.health = health
         self.goodOrBad = goodOrBad
     }
@@ -22,13 +22,23 @@ class Player {
         return self.health
     }
     
-    func attack () -> Int
+    func attack (formOfAttack : String) -> Int
     {
-        var attackedHealth = Int(arc4random_uniform(20))
-        let newHealth = self.health - attackedHealth
-        var health = newHealth
+        var attackedHealth = 0
+
+        if formOfAttack == "Axe" {
+            
+            attackedHealth = Int(arc4random_uniform(12)) + 8
+            
+        }
+        else if formOfAttack == "Sword"
+        {
+            attackedHealth = Int(arc4random_uniform(15)) + 5
+        }
+    
+        self.health = self.health - attackedHealth
         
-        return newHealth
+        return health
     }
     
 }
@@ -37,17 +47,19 @@ class GoodGuy : Player{
 
 }
 
-class BadGuy : Player {
+class  BadGuy : Player {
     
 }
 
-let x = GoodGuy(name: "Good1", health: 100, goodOrBad : "Good")
-let y = BadGuy(name: "Bad1", health: 100, goodOrBad : "Bad")
+let x = Player(health: 100, goodOrBad : "Good")
+let y = BadGuy(health: 100, goodOrBad : "Bad")
 
 x.showHealth()
 
-x.attack()
+x.attack("Axe")
 x.showHealth()
+
+
 
 
 
