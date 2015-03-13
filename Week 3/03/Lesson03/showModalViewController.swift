@@ -26,8 +26,14 @@ class showModalViewController: UIViewController {
         
         //TODO three: Add and hook up a ‘dismiss’ button below the above mentioned image view that will dismiss the modal dialog. Do this in CODE.
         //show the button
+        
+        //creates the button, sets the title and alignment and frame
+        //then calls the vcDidFinish to dismiss the VC
         dismissButton.setTitle("Done", forState: .Normal)
-        dismissButton.addTarget(self, action: "ViewController", forControlEvents: .TouchUpInside)
+        dismissButton.titleLabel?.font = UIFont(name: "Helvetica", size: 24)
+        dismissButton.titleLabel?.textAlignment = .Left
+        dismissButton.frame = CGRectMake(150,175,200,50)
+        dismissButton.addTarget(self, action: "vcDidFinish", forControlEvents: .TouchUpInside)
         view.addSubview(dismissButton)
         
         
@@ -53,6 +59,12 @@ class showModalViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //func to dismiss the modal call from the done button
+    func vcDidFinish(){
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
 
     /*
     // MARK: - Navigation
